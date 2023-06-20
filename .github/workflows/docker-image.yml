@@ -17,4 +17,4 @@ jobs:
     - name: Build the app
       run: dotnet build
     - name: Build the Docker image
-      run: docker build --tag footballClubsManager:$(date +%s) --file Dockerfile
+      run: docker build --tag footballclubsmanager:$(date +%s) --file Dockerfile
