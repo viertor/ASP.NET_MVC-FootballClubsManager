@@ -6,3 +6,7 @@ It contains:
 - ASP.NET MVC
 - In memory database
 - Razor
+
+It is build using:
+- GitHub actions
+- Docker
