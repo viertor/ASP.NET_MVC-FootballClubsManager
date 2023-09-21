@@ -17,5 +17,3 @@ spec:
       containers:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:master
-          ports:
-            - containerPort: 5000
