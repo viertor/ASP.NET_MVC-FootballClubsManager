@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footballclubsmanager
+  labels:
+    app: footballclubsmanager
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: footballclubsmanager
+  template:
+    metadata:
+      labels:
+        app: footballclubsmanager
+    spec:
+      containers:
+        - name: footballclubsmanager
+          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:master
+          ports:
+            - containerPort: 5000

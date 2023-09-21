@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: footballclubsmanager
+  labels:
+    app: footballclubsmanager
+    component: footballclubsmanager
+spec:
+  containers:
+  - name: footballclubsmanager
+    image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:master
+    ports:
+      - containerPort: 500

@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: footballclubsmanager
+spec:
+  selector:
+    app: footballclubsmanager
+  ports:
+    - port: 5678
+      targetPort: 80
+  type: LoadBalancer 
