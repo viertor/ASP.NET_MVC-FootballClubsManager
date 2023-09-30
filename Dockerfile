@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
-RUN apt-get update \
-    && apt-get install -y curl jq 
-    
+RUN apt-get update
+RUN apt-get install -y curl
+   
 WORKDIR /source
 
 COPY . .
