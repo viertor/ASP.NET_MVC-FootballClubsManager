@@ -5,6 +5,7 @@ RUN apt-get install -y curl
    
 WORKDIR /source
 
+
 COPY . .
 RUN dotnet publish -c release -o /app
 
