@@ -24,13 +24,13 @@ namespace FootballClubsManager.Controllers
         // GET: FootballClubControllercs
         public ActionResult Index()
         {
-            return Ok(_footballClubService.GetClubs());
+            return View(_footballClubService.GetClubs());
         }
 
         // GET: FootballClubControllercs/Details/5
         public ActionResult Details()
         {
-            return View(_footballClubService.GetClubs());
+            return Ok(_footballClubService.GetClubs());
         }
 
         // GET: FootballClubControllercs/Create
