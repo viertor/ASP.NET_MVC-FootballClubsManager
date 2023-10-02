@@ -24,7 +24,7 @@ namespace FootballClubsManager.Controllers
         // GET: FootballClubControllercs
         public ActionResult Index()
         {
-            return View(_footballClubService.GetClubs());
+            return Ok(_footballClubService.GetClubs());
         }
 
         // GET: FootballClubControllercs/Details/5
