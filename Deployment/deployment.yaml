@@ -18,3 +18,9 @@ spec:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:master
           imagePullPolicy: Always
+          readinessProbe:
+            exec:
+              command:
+              - sh
+              - -cc
+              - curl http://localhost:5000/FootballClubs/Details | grep "name\":\"RKS Radomsko"
