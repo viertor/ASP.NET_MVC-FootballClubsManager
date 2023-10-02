@@ -16,5 +16,4 @@ spec:
     spec:
       containers:
         - name: footballclubsmanager
-          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:master
-          imagePullPolicy: Always
+          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_traning_lukasz
