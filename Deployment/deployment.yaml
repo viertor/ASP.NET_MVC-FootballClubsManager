@@ -17,4 +17,6 @@ spec:
       containers:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_training_krzysiek
+          ports:
+            - containerPort: 5678
 
