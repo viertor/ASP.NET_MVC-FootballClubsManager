@@ -5,7 +5,7 @@ metadata:
   labels:
     app: footballclubsmanager
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: footballclubsmanager
@@ -17,4 +17,23 @@ spec:
       containers:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_training_krzysiek
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drupal
+  template:
+    metadata:
+      labels:
+        app: drupal
+    spec:
+      containers:
+        - name: drupal
+          image: drupal
