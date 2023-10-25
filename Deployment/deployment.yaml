@@ -5,7 +5,6 @@ metadata:
   labels:
     app: footballclubsmanager
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: footballclubsmanager
@@ -16,4 +15,8 @@ spec:
     spec:
       containers:
         - name: footballclubsmanager
-          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_traning_lukasz
+          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_training_kasia
+          replicas: 3
+        - name: new-nginx
+          image: nginx
+          replicas: 1
