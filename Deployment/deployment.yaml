@@ -5,6 +5,7 @@ metadata:
   labels:
     app: footballclubsmanager
 spec:
+  replicas: 4
   selector:
     matchLabels:
       app: footballclubsmanager
@@ -15,8 +16,45 @@ spec:
     spec:
       containers:
         - name: footballclubsmanager
+          imagePullPolicy: Always
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_training_kasia
-          replicas: 3
-        - name: new-nginx
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+             memory: "128Mi"
+             cpu: "500m"
+          readinessProbe:
+            exec: 
+              command:
+              - sh
+              - -cc
+              - curl http://localhost:5005/FootballClubs/Details | grep "name\":\"RKS Radomsko"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second
+  labels:
+    app: second
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: second
+  template:
+    metadata:
+      labels:
+        app: second
+    spec:
+      containers:
+        - name: second
           image: nginx
-          replicas: 1
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+             memory: "128Mi"
+             cpu: "500m"
