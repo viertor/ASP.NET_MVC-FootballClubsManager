@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footballclubsmanager
+  labels:
+    app: footballclubsmanager
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: footballclubsmanager
+  template:
+    metadata:
+      labels:
+        app: footballclubsmanager
+    spec:
+      containers:
+        - name: footballclubsmanager
+          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_traning_lukasz
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: footballclubsmanagernew
+  labels:
+    app: footballclubsmanagernew
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: footballclubsmanagernew
+  template:
+    metadata:
+      labels:
+        app: footballclubsmanagernew
+    spec:
+      containers:
+        - name: footballclubsmanagernew
+          image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_traning_new
