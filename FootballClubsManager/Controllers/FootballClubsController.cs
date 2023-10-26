@@ -36,7 +36,7 @@ namespace FootballClubsManager.Controllers
         // GET: FootballClubControllercs/Create
         public ActionResult Create()
         {
-            return View();
+            return Ok(_footballClubService.GetClubs());
         }
 
         // POST: FootballClubControllercs/Create
