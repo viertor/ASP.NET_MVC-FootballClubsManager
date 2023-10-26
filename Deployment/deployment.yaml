@@ -17,6 +17,11 @@ spec:
       containers:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:k8s_training_krzysiek
-          ports:
-            - containerPort: 5678
+          imagePullPolicy: Always 
+          readinessProbe:
+            exec:
+              command: 
+              - sh 
+              - -cc
+              - curl http://localhost:6000/FootballClubs/Details | grep "name\":\"RKS Radomsko"
 
