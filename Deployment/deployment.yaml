@@ -5,7 +5,7 @@ metadata:
   labels:
     app: footballclubsmanager
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: footballclubsmanager
@@ -17,6 +17,21 @@ spec:
       containers:
         - name: footballclubsmanager
           image: ghcr.io/viertor/asp.net_mvc-footballclubsmanager:K8S_Training_Marek
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+             memory: "128Mi"
+             cpu: "500m"
+          imagePullPolicy: Always
+          readinessProbe: 
+           exec:
+             command:
+             - sh
+             - -cc
+             - curl http://localhost:5678/FootballClubs/Details | grep "name\":\"RKS Radomsko"
+              
 ---
 apiVersion: apps/v1
 kind: Deployment
