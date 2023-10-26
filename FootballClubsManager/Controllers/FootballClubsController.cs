@@ -30,13 +30,13 @@ namespace FootballClubsManager.Controllers
         // GET: FootballClubControllercs/Details/5
         public ActionResult Details()
         {
-            return View();
+            return Ok(_footballClubService.GetClubs());
         }
 
         // GET: FootballClubControllercs/Create
         public ActionResult Create()
         {
-            return Ok(_footballClubService.GetClubs());
+            return View();
         }
 
         // POST: FootballClubControllercs/Create
